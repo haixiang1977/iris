@@ -11,3 +11,10 @@ See Readme
 
 mosquitto:
 https://hub.docker.com/_/eclipse-mosquitto
+
+
+node:
+https://hub.docker.com/_/node
+
+redis:
+https://hub.docker.com/_/redis
