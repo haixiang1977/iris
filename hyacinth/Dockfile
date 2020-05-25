@@ -8,7 +8,7 @@ LABEL author="haixiang1977@gmail.com" date="2020-05-24"
 
 # install dependancy
 RUN apt-get update
-RUN apt-get install -y build-essential cmake curl wget libssl-dev
+RUN apt-get install -y build-essential cmake curl wget libssl-dev vim
 
 # install boost dependancy
 mkdir -p /home/boost/install
@@ -36,3 +36,5 @@ RUN ./run_build.sh build <- path in CMakeList.txt to be changed
 WORKDIR /home/hyacinth/bin
 # RUN ./hyacinth
 
+# as run time environment
+FROM ubuntu:16.04 as executable
