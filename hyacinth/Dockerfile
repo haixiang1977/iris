@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get install -y build-essential cmake curl wget libssl-dev vim
 
 # install boost dependancy
-mkdir -p /home/boost/install
+RUN mkdir -p /home/boost/install
 WORKDIR /home/boost/
 RUN wget -P /home/boost/ https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz
 RUN tar -xzf boost_1_73_0.tar.gz
@@ -20,13 +20,13 @@ WORKDIR /home/boost/boost_1_73_0
 RUN ./install_boost.sh
 
 # install mosquitto dependancy
-mkdir -p /home/mosquitto/install
+RUN mkdir -p /home/mosquitto/install
 WORKDIR /home/mosquitto/
 RUN wget -P /home/mosquitto/ https://mosquitto.org/files/source/mosquitto-1.4.11.tar.gz
 RUN tar -xzf mosquitto-1.4.11.tar.gz
 WORKDIR /home/mosquitto/mosquitto-1.4.11
-RUN cmake . &&
-    make &&
+RUN cmake . && \
+    make && \
     make DESTDIR=../install/ install
 
 # build hyacinth project
