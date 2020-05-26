@@ -15,7 +15,7 @@ mkdir -p /home/boost/install
 WORKDIR /home/boost/
 RUN wget -P /home/boost/ https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz
 RUN tar -xzf boost_1_73_0.tar.gz
-COPY hyacinth/external/boost/install_boost.sh /home/boost/boost_1_73_0/ <- path in install_boost.sh to be changed
+COPY hyacinth/external/boost/install_boost.sh /home/boost/boost_1_73_0/
 WORKDIR /home/boost/boost_1_73_0
 RUN ./install_boost.sh
 
@@ -32,9 +32,8 @@ RUN cmake . &&
 # build hyacinth project
 COPY hyacinth /home/
 WORKDIR /home/hyacinth/build
-RUN ./run_build.sh build <- path in CMakeList.txt to be changed
-WORKDIR /home/hyacinth/bin
-# RUN ./hyacinth
+RUN ./run_build.sh build
 
-# as run time environment
-FROM ubuntu:16.04 as executable
+WORKDIR /home/hyacinth/bin
+CMD ./hyacinth
+
