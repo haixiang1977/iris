@@ -1,0 +1,15 @@
+FROM node:10.20.1
+
+WORKDIR /home
+
+COPY azalea /home/
+
+RUN apt-get update
+RUN apt-get install -y sqlite3 vim
+
+WORKDIR /home/azalea
+RUN npm install
+
+# change routes/device.js to point to petunia docker
+
+RUN npm start
