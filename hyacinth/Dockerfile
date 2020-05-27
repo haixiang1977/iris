@@ -30,7 +30,7 @@ RUN cmake . && \
     make DESTDIR=../install/ install
 
 # build hyacinth project
-COPY hyacinth /home/
+COPY hyacinth /home/hyacinth
 WORKDIR /home/hyacinth/build
 RUN ./run_build.sh build
 
