@@ -10,5 +10,5 @@ RUN apt-get install -y sqlite3 vim
 WORKDIR /home/petunia
 RUN npm install
 
-RUN npm start
+CMD npm start
 
