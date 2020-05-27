@@ -10,7 +10,5 @@ RUN apt-get install -y sqlite3 vim
 WORKDIR /home/petunia
 RUN npm install
 
-# change redis/redis_client.js to point to redis docker container
-# change mqtt/mqtt_sub.js to point to mosquitto docker container
-
 RUN npm start
+
