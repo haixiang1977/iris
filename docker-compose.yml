@@ -1,0 +1,35 @@
+mosquitto:
+	image: eclipse-mosquito:latest
+	hostname: mosquitto
+	expose:
+		- 1883
+
+hyacinth:
+	image: yiyang2009/hyacinth:1.1.0
+	hostname: hyacinth
+	links:
+		- mosquitto
+
+redis:
+	image: redis:latest
+	hostname: redis
+	expose:
+		- 6379
+
+petunia:
+	image: yiyang2009/petunia:1.1.0
+	hostname: petunia
+	links:
+		- mosquitto
+		- redis
+	expose:
+		- 3000
+
+azalea:
+	image: yiyang2009/azalea:1.1.0
+	hostname: azalea
+	ports:
+		- "8080:8080"
+	links:
+		- petunia
+
